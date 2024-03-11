@@ -1,0 +1,29 @@
+<div class="card border-light mb-3" style="max-width: 100rem">
+    <div class="card-body">
+        <div>
+            <h3 class="card-tittle">Categories</h3><br>
+        </div>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr class="table-active">
+                        <th scope="colspan">category_id</th>
+                        <th scope="colspan">category</th>
+                        <th scope="colspan">acronym</th>
+                        <th scope="colspan">status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (category of categories; track category) {
+                    <tr>
+                        <td>{{ category.category_id }}</td>
+                        <td>{{ category.category }}</td>
+                        <td>{{ category.acronym }}</td>
+                        <td>{{ category.status == 0? "Disponible" : "Ocupado" }}</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
