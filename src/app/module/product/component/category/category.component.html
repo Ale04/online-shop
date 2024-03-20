@@ -1,16 +1,18 @@
 <div class="card border-light mb-3" style="max-width: 100rem">
     <div class="card-body">
         <div>
-            <h3 class="card-tittle">Categories</h3><br>
+            <button type="button" class="btn btn-primary" style="float: right;" (click)="showModalForm()">Nueva
+                categoria </button>
+            <h3 class="card-tittle">Categorias</h3><br>
         </div>
         <div>
             <table class="table">
                 <thead>
                     <tr class="table-active">
-                        <th scope="colspan">category_id</th>
-                        <th scope="colspan">category</th>
-                        <th scope="colspan">acronym</th>
-                        <th scope="colspan">status</th>
+                        <th scope="colspan">Id</th>
+                        <th scope="colspan">Categoria</th>
+                        <th scope="colspan">Acronimo</th>
+                        <th scope="colspan">Estatus</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,6 +26,45 @@
                     }
                 </tbody>
             </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalForm" tabindex="-1" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Nueva categoria</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="form" (ngSubmit)="onSummit()">
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Categoria</label>
+                        <input type="text" class="form-control" formControlName="category" placeholder="Nombre"
+                            [ngClass]="{'is-invalid': form.controls['category'].errors && submitted}">
+
+                        @if (form.controls['category'].errors && submitted) {
+                            <small class="input-error-message">Por favor, ingresa unicamente letras.</small>
+                        }
+
+                    </div>
+                    <div class="mb-3">
+                        <!-- <label for="acronym" class="form-label">Acronimo</label> -->
+                        <input type="text" class="form-control" formControlName="acronym" placeholder="Acronimo"
+                            [ngClass]="{'is-invalid': form.controls['acronym'].errors && submitted}">
+
+                        @if (form.controls['acronym'].errors && submitted) {
+                            <small class="input-error-message">Por favor, ingresa unicamente letras.</small>
+                        }
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary btn-new" (click)="onSummit()">Agregar</button>
+            </div>
         </div>
     </div>
 </div>

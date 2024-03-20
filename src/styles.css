@@ -23,6 +23,20 @@
     margin: auto;
 }
 
+.form-button{
+    margin: 24px;
+    text-align: center;
+  }
+   
+.btn-new{
+    width: 240px;
+}
+
+.input-error-message{
+    color: red;
+    margin: 4px;
+  }
+  
 :root,
 [data-bs-theme=light] {
     --bs-blue: #007bff;
