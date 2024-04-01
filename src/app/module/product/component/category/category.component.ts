@@ -62,7 +62,7 @@ export class CategoryComponent {
       position: 'top-end',
       icon: 'success',
       toast: true,
-      text: 'Registro exitoso',
+      text: 'La categoría ha sido registrada',
       background: '#E8F8F8',
       showConfirmButton: false,
       timer: 2000
