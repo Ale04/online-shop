@@ -23,6 +23,20 @@
     margin: auto;
 }
 
+.form-button{
+    margin: 24px;
+    text-align: center;
+  }
+   
+.btn-new{
+    width: 240px;
+}
+
+.input-error-message{
+    color: red;
+    margin: 4px;
+  }
+  
 :root,
 [data-bs-theme=light] {
     --bs-blue: #007bff;
@@ -3509,6 +3523,7 @@ fieldset:disabled .btn {
     --bs-btn-disabled-color: #fff;
     --bs-btn-disabled-bg: #593196;
     --bs-btn-disabled-border-color: #593196;
+    float: right;
 }
 
 .btn-secondary {
@@ -4955,6 +4970,7 @@ fieldset:disabled .btn {
     display: flex;
     flex-direction: column;
     min-width: 0;
+    max-width: 100rem;
     height: var(--bs-card-height);
     color: var(--bs-body-color);
     word-wrap: break-word;
