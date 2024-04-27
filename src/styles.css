@@ -23,20 +23,85 @@
     margin: auto;
 }
 
-.form-button{
+.form-button {
     margin: 24px;
     text-align: center;
-  }
-   
-.btn-new{
+}
+
+.btn-new {
     width: 240px;
 }
 
-.input-error-message{
+.input-error-message {
     color: red;
     margin: 4px;
-  }
-  
+}
+
+.swal-title {
+    font-size: 24px;
+}
+
+
+.swal-icon {
+    font-size: 12px;
+}
+
+
+.swal-cancel-button {
+    width: 120px;
+    margin: 12px;
+}
+
+
+.swal-confirm-button {
+    width: 120px;
+    margin: 12px;
+}
+
+.dropdown-button {
+    border: none;
+    background-color: white;
+}
+
+
+.dropdown-item {
+    color: black !important;
+    cursor: pointer;
+}
+
+
+.dropdown-item:hover {
+    color: white !important;
+}
+
+
+.enable-item {
+    color: blue !important;
+    cursor: pointer;
+}
+
+
+.enable-item:hover {
+    color: white !important;
+}
+
+
+.disable-item {
+    color: red !important;
+    cursor: pointer;
+}
+
+
+.disable-item:hover {
+    color: white !important;
+}
+
+
+.icon-text-ul {
+    font-size: 14px;
+    margin-right: 8px;
+}
+
 :root,
 [data-bs-theme=light] {
     --bs-blue: #007bff;

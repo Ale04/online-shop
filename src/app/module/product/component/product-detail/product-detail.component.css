@@ -1,0 +1,33 @@
+.carousel-del {
+    position: absolute;
+    right: 0;
+    top: 15px;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5%;
+}
+
+.trash {
+    font-size: 20px;
+}
+
+.pencil {
+    margin: 0 auto;
+}
+
+.btn-return {
+    margin-bottom: 16px;
+    margin-left: 181vh;
+}
+
+
+.card-body-product {
+    padding: 16px;
+}
+
+.btn-trash {
+    position: relative;
+    margin-left: 110vh;
+}
+  
