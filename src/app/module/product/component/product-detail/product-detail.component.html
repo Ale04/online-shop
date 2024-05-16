@@ -1,0 +1,126 @@
+<div class="card-body">
+
+    <button type="button" class="btn-return btn btn-light" (click)="redirect(['producto'])">
+        <!-- <i class="ph ph-arrow-circle-left icon-text-button"></i> -->
+        Terminar
+    </button>
+
+
+    <div class="row">
+        
+        <!-- product images -->
+        
+        <div class="col-md-4">
+            <div class="card">
+                @if (images.length > 1) {
+
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <div class="carousel-indicators">
+
+                        @for (image of images; track image; let i = $index) {
+
+                        <button type="button" class="indicator" data-bs-target="#carouselExampleIndicators"
+                            [attr.data-bs-slide-to]="i" [class.active]="i === 0" [attr.aria-current]="i === 0"
+                            [attr.aria-label]="'Slide ' + i"></button>
+
+                        }
+
+                    </div>
+                    <div class="carousel-inner">
+
+                        @for (image of images; track image; let i = $index) {
+
+                        <div class="carousel-item" [class.active]="i === 0">
+                            <div class="carousel-del">
+                                <a (click)="deleteProductImage(image)" class="btn btn-danger btn-edith btn-trash">
+                                    <i class="ph ph-trash"></i>
+                                </a>
+                            </div>
+                            <img src="{{ image.image }}"
+                                class="d-block w-100" alt="...">
+                        </div>
+
+                        }
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                }
+                <div class="pencil">
+                    <label for="uploadImage" class="cursor-pointer">
+                        <input type="file" (change)="fileChangeHandler($event)" id="uploadImage" style="display:none">
+                        <i class="ph ph-note-pencil btn btn-primary btn-edith"></i>
+                    </label>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- product data -->
+
+        <div class="col-md-8">
+            
+            <div class="card card-body-product">
+                <div>
+                    <h3 class="card-tittle">{{ product.product }}</h3><br>
+                </div>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th class="col-md-4">Nombre</th>
+                            <td>{{ product.product }}</td>
+                        </tr>
+                        <tr>
+                            <th class="col-md-4">Gtin</th>
+                            <td>{{ product.gtin }}</td>
+                        </tr>
+                        <tr>
+                            <th class="col-md-4">Precio</th>
+                            <td>{{ product.price }}</td>
+                        </tr>
+                        <tr>
+                            <th class="col-md-4">Stock</th>
+                            <td>{{ product.stock }}</td>
+                        </tr>
+                        <tr>
+                            <th class="col-md-4">Categoria</th>
+                            <td>{{ product.category_id }}</td>
+                        </tr>
+                        <tr>
+                            <th class="col-md-4">Descripción</th>
+                            <td>{{ product.description }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div>
+
+                    <button type="button" class="btn btn-primary btn-edith" (click)="updateProduct()">
+                        <i class="ph ph-note-pencil"></i>
+                    </button>
+                    
+                    <button type="button" class="btn btn-danger btn-edith btn-trash">
+                        <i class="ph ph-trash"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- modal -->
+
+
+
+
+
+

@@ -1,8 +1,9 @@
 <div class="card border-light mb-3">
     <div class="card-body">
         <div>
-            <button type="button" class="btn btn-primary" (click)="showModalForm()">Nueva
-                categoría </button>
+            <button type="button" class="btn btn-primary" (click)="showModalForm()">
+                <i class="ph ph-plus-circle"></i>
+                Nueva categoría </button>
             <h3 class="card-tittle">Categorías</h3><br>
         </div>
         <div>
@@ -13,6 +14,7 @@
                         <th scope="colspan">Categoría</th>
                         <th scope="colspan">Acrónimo</th>
                         <th scope="colspan">Estatus</th>
+                        <th scope="colspan"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,7 +23,21 @@
                         <td>{{ category.category_id }}</td>
                         <td>{{ category.category }}</td>
                         <td>{{ category.acronym }}</td>
-                        <td>{{ category.status == 0? "Disponible" : "Ocupado" }}</td>
+                        <td>{{ category.status == 0? "Inactivo" : "Activo" }}</td>
+                        <td>
+                            <a (click)="updateCategory(category)">
+                                <i class="ph ph-note-pencil icon-text-ul"></i>Editar
+                            </a>
+                            <a *ngIf="category.status == 0" class="dropdown-item enable-item"
+                                (click)="enableCategory(category.category_id)">
+                                <i class="ph ph-check-circle icon-text-ul"></i>Activar
+                            </a>
+                            <a *ngIf="category.status == 1" class="dropdown-item disable-item"
+                                (click)="disableCategory(category.category_id)">
+                                <i class="ph ph-x-circle icon-text-ul"></i>Desactivar
+                            </a>
+
+                        </td>
                     </tr>
                     }
                 </tbody>
@@ -42,21 +58,23 @@
                 <form [formGroup]="form" (ngSubmit)="onSummit()">
                     <div class="mb-3">
                         <label for="category" class="form-label">Categoría</label>
-                        <input type="text" class="form-control" formControlName="category" placeholder="Nombre de la categoría"
+                        <input type="text" class="form-control" formControlName="category"
+                            placeholder="Nombre de la categoría"
                             [ngClass]="{'is-invalid': form.controls['category'].errors && submitted}">
 
                         @if (form.controls['category'].errors && submitted) {
-                            <small class="input-error-message">Por favor, ingresa únicamente letras.</small>
+                        <small class="input-error-message">Por favor, ingresa únicamente letras.</small>
                         }
 
                     </div>
                     <div class="mb-3">
                         <label for="acronym" class="form-label">Acrónimo</label>
-                        <input type="text" class="form-control" formControlName="acronym" placeholder="Acrónimo de la categoría"
+                        <input type="text" class="form-control" formControlName="acronym"
+                            placeholder="Acrónimo de la categoría"
                             [ngClass]="{'is-invalid': form.controls['acronym'].errors && submitted}">
 
                         @if (form.controls['acronym'].errors && submitted) {
-                            <small class="input-error-message">Por favor, ingresa únicamente letras.</small>
+                        <small class="input-error-message">Por favor, ingresa únicamente letras.</small>
                         }
                     </div>
                 </form>
