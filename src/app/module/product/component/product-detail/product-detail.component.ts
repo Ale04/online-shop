@@ -10,6 +10,9 @@ import { ProductImageService } from '../../_service/product-image.service';
 import { Product } from '../../_model/product';
 import { NgxCroppedEvent, NgxPhotoEditorService } from "ngx-photo-editor";
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from '../../../authentication/_service/authentication.service';
+import { CartService } from '../../../invoice/_service/cart.service';
+import { Cart } from '../../../invoice/_model/cart';
 
 
 declare var $: any;
@@ -21,10 +24,21 @@ declare var $: any;
 })
 export class ProductDetailComponent {
 
+  cart: Cart = new Cart();
+
   images: ProductImage[] = [];
 
   product: Product = new Product();
   gtin: string = "";
+
+  submitted = false;
+
+  loggedIn = false;
+  isAdmin = false;
+
+  quantity = 1;
+
+  swal: SwalMessages = new SwalMessages();
 
   form = this.formBuilder.group({
     product: ["", [Validators.required]],
@@ -35,10 +49,6 @@ export class ProductDetailComponent {
     category_id: [0, [Validators.required]],
   });
 
-  submitted = false;
-
-  swal: SwalMessages = new SwalMessages();
-
   constructor(
     private categoryService: CategoryService,
     private productService: ProductService,
@@ -47,9 +57,24 @@ export class ProductDetailComponent {
     private service: NgxPhotoEditorService,
     private route: ActivatedRoute,
     private router: Router,
+    private authenticationService: AuthenticationService,
+    private cartService: CartService
   ) { }
 
   ngOnInit() {
+    if (localStorage.getItem("token")) {
+      this.loggedIn = true;
+    }
+
+    if (localStorage.getItem("user")) {
+      let user = JSON.parse(localStorage.getItem("user")!);
+
+      if (user.rol == "ADMIN") {
+        this.isAdmin = true;
+      } else {
+        this.isAdmin = false;
+      }
+    }
 
     this.gtin = this.route.snapshot.paramMap.get('gtin')!;
 
@@ -172,6 +197,33 @@ export class ProductDetailComponent {
 
   showModalForm() {
     $("#modalForm").modal("show")
+  }
+
+  increment() {
+    if (this.quantity < this.product.stock) {
+      this.quantity++;
+    }
+  }
+
+  decrement() {
+    if (this.quantity > 1) {
+      this.quantity--;
+    }
+  }
+
+  addToCart() {
+    this.cart.gtin = this.gtin;
+    this.cart.quantity = this.quantity;
+
+    this.cartService.addToCart(this.cart).subscribe({
+      next: (v) => {
+        this.swal.successMessage("El artículo ha sido agregado"); // v.body!.message); 
+      },
+      error: (e) => {
+        console.error(e);
+        this.swal.errorMessage(e.error!.message); 
+      }
+    });
   }
 
 }

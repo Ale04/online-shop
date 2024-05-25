@@ -1,15 +1,16 @@
 <div class="card-body">
 
-    <button type="button" class="btn-return btn btn-light" (click)="redirect(['producto'])">
-        <!-- <i class="ph ph-arrow-circle-left icon-text-button"></i> -->
+    <button type="button" class="btn btn-light" (click)="redirect(['producto'])">
+        <i class="ph ph-arrow-circle-left icon-text-button"></i>
         Terminar
     </button>
 
+    @if (isAdmin) {
 
     <div class="row">
-        
+
         <!-- product images -->
-        
+
         <div class="col-md-4">
             <div class="card">
                 @if (images.length > 1) {
@@ -36,8 +37,7 @@
                                     <i class="ph ph-trash"></i>
                                 </a>
                             </div>
-                            <img src="{{ image.image }}"
-                                class="d-block w-100" alt="...">
+                            <img src="{{ image.image }}" class="d-block w-100" alt="...">
                         </div>
 
                         }
@@ -45,12 +45,12 @@
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                         data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+                        <span class="visually-hidden">Anterior</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
                         data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
+                        <span class="visually-hidden">Siguiente</span>
                     </button>
                 </div>
                 }
@@ -67,7 +67,7 @@
         <!-- product data -->
 
         <div class="col-md-8">
-            
+
             <div class="card card-body-product">
                 <div>
                     <h3 class="card-tittle">{{ product.product }}</h3><br>
@@ -106,7 +106,7 @@
                     <button type="button" class="btn btn-primary btn-edith" (click)="updateProduct()">
                         <i class="ph ph-note-pencil"></i>
                     </button>
-                    
+
                     <button type="button" class="btn btn-danger btn-edith btn-trash">
                         <i class="ph ph-trash"></i>
                     </button>
@@ -114,13 +114,105 @@
             </div>
         </div>
     </div>
+    } @else {
+    <div class="row">
+
+        <!-- product images -->
+
+        <div class="col-md-4">
+            <div class="card">
+                @if (images.length > 1) {
+
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <div class="carousel-indicators">
+
+                        @for (image of images; track image; let i = $index) {
+
+                        <button type="button" class="indicator" data-bs-target="#carouselExampleIndicators"
+                            [attr.data-bs-slide-to]="i" [class.active]="i === 0" [attr.aria-current]="i === 0"
+                            [attr.aria-label]="'Slide ' + i"></button>
+
+                        }
+
+                    </div>
+                    <div class="carousel-inner">
+                        @for (image of images; track image; let i = $index) {
+
+                        <div class="carousel-item" [class.active]="i === 0">
+                            <img src="{{ image.image }}" class="d-block w-100" alt="...">
+                        </div>
+
+                        }
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+                }
+
+            </div>
+        </div>
+
+        <!-- product data -->
+
+        <div class="col-md-8">
+
+            <div class="card card-body-product">
+                <div>
+                    <h3 class="card-tittle">{{ product.product }}</h3><br>
+                </div>
+                <table class="table">
+                    <tbody>
+                        <!-- <tr>
+                            <th class="col-md-4"></th>
+                            <td>{{ product.product }}</td>
+                        </tr> -->
+                        <tr>
+                            <th class="col-md-4"></th>
+                            <td>Código del producto: {{ product.gtin }}</td>
+                        </tr>
+                        <tr>
+                            <th class="col-md-4"></th>
+                            <td>{{ product.description }}</td>
+                        </tr>
+                        <tr>
+                            <th class="col-md-4"></th>
+                            <td><strong>{{ product.price }}</strong></td>
+                        </tr>
+                        <tr>
+                            <th class="col-md-4"></th>
+                            <td>
+                                @if (product.stock > 0) {
+                                <p>Disponibles: {{ product.stock }}</p>
+                                <div class="number">
+                                    <span class="minus" (click)="decrement()">-</span>
+                                    <!-- <input type="number"[value]="quantity" (change)="updateQuantity($event)" /> -->
+                                    <input type="number" [value]="quantity" />
+                                    <span class="plus" (click)="increment()">+</span>
+                                </div>
+                                } @else {
+                                <p>Sin productos</p>
+                                }
+                            </td>
+                        </tr>
+                    </tbody>
+                    <a class="btn" role="button" data-bs-toggle="button" (click)="addToCart()">
+                        <i class="ph ph-shopping-cart-simple i-cart"></i> Añadir al carrito
+                    </a>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    }
 </div>
 
 
 <!-- modal -->
-
-
-
-
-
-

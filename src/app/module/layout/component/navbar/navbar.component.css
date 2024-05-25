@@ -1,5 +1,9 @@
 .navbar {
-    padding: 8px;
+    padding: 2px;
+    /* padding-right: 200px;
+    padding-left: 100px; */
+    /* font-family: "Poppins"; */
+    background: #EBFFFD;
 }
 
 .navbar-content {
@@ -8,20 +12,20 @@
 }
 
 .nav-logo {
-    width: 50px;
-    height: 50px;
+    width: 90px;
+    height: 60px;
     margin-right: 20px;
-    margin-left: 8px;
+    margin-left: 20px;
 }
 
 .nav-dropdown-item {
-    color: gray !important;
+    color: #A2837F !important;
 }
 
 
 .nav-dropdown-item:hover {
-    background-color: pink;
-    color: black !important;
+    background-color: #EBFFFD;
+    color: #683E38 !important;
 }
 
 .nav-dropdown-menu-user {
@@ -35,7 +39,7 @@
 }
 
 .i-cart {
-    color: gray;
+    color: #A2837F;
     font-size: 28px;
     vertical-align: middle;
     margin-left: 18px;
@@ -48,3 +52,84 @@
 .nav-register {
     margin-left: 12px;
 }
+
+/* .form-control:hover {
+    border-color: pink;
+    box-shadow: 0 0 5px pink;
+}
+
+.form-control:focus {
+    border-color: pink;
+    box-shadow: 0 0 5px pink;
+} */
+
+.nav-link {
+    color: #A2837F;
+    font-size: 14px;
+    position: relative;
+    transition: all 0.4s;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: #683E38;
+}
+
+.nav-link::after {
+    height: 6px;
+    width: 100%;
+    background: #683E38;
+    display: block;
+    position: absolute;
+    left: -2px;
+    bottom: -16px;
+    opacity: 0;
+    transition: .15s all ease-out; 
+    pointer-events: none; 
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+    opacity: 1;
+}
+
+.search {
+    --padding: 14px;
+
+    width: max-content;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    padding: var(--padding);
+    border-radius: 28px;
+    background: white;
+    transition: box-shadow 0.25s;
+}
+
+.search:focus-within {
+    box-shadow: 0 0 2px #683E38;
+}
+
+.search-input {
+    font-size: 16px;
+    color:#683E38;
+    margin-left: var(--padding);
+    outline: none;
+    border: none;
+    background: transparent;
+    width: 250px;
+}
+
+.search-input::placeholder,
+.search-icon {
+    color: #A2837F;
+}
+
+.search-input::marker {
+    color:#683E38;
+}
+
+.search-input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+

@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg bg-light" data-bs-theme="light">
+<nav class="navbar navbar-expand-lg" data-bs-theme="light">
     <div class="container-fluid navbar-content">
 
         <a class="navbar-brand" href="#">
-            <img src="assets/images/sakura.png" alt="..." class="nav-logo">
+            <img src="assets/images/logo.png" alt="..." class="nav-logo">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03"
@@ -15,11 +15,11 @@
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true"
-                        aria-expanded="false">Categories</a>
+                        aria-expanded="false">Categorías</a>
 
                     <div class="dropdown-menu nav-dropdown-menu">
                         @for (category of categories; track category) {
-                        <a class="dropdown-item nav-dropdown-item" routerLink="#">{{ category.category }}</a>
+                        <a class="dropdown-item nav-dropdown-item" [routerLink]="['producto/categoria/', category.category_id]">{{ category.category }}</a>
                         }
                     </div>
                 </li>
@@ -27,23 +27,24 @@
                 @if (isAdmin) {
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                            aria-haspopup="true" aria-expanded="false">Manage
+                            aria-haspopup="true" aria-expanded="false">Administración
                         </a>
 
 
                         <div class="dropdown-menu">
-                            <a class="dropdown-item nav-dropdown-item" href="/categoria">Categories</a>
-                            <a class="dropdown-item nav-dropdown-item" href="#">Customers</a>
-                            <a class="dropdown-item nav-dropdown-item" href="/producto">Products</a>
+                            <a class="dropdown-item nav-dropdown-item" href="/categoria">Categorías</a>
+                            <a class="dropdown-item nav-dropdown-item" href="#">Clientes</a>
+                            <a class="dropdown-item nav-dropdown-item" href="/producto">Productos</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item nav-dropdown-item" href="#">Regions</a>
+                            <a class="dropdown-item nav-dropdown-item" href="#">Regiones</a>
                         </div>
                     </li>
                 }
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-sm-2" type="search" placeholder="Search">
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            <form class="search">
+                <span class="ph ph-magnifying-glass search-icon"></span>
+                <input class="search-input" type="search" placeholder="Buscar">
+                <!-- <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button> -->
             </form>
 
             @if (loggedIn) {
@@ -52,7 +53,7 @@
             </a>
             } @else {
             <ul class="navbar-nav">
-                <a class="nav-link nav-register" (click)="showRegisterModal()">Sign up</a>
+               <li><a class="nav-link nav-register" (click)="showRegisterModal()">Sign up</a></li>
             </ul>
             }
 
@@ -66,7 +67,7 @@
 
         <li class="nav-item dropdown user-information">
 
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                 aria-expanded="false">
                 <img class="img-profile rounded-circle nav-user-img" src="assets/images/user-circle.svg">
             </a>
@@ -81,7 +82,7 @@
 
         } @else {
 
-            <a class="nav-link" (click)="showLoginModal()">Log in</a>
+            <li><a class="nav-link" (click)="showLoginModal()">Log in</a></li>
 
         }
     </ul>

@@ -2,19 +2,27 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { AuthenticationModule } from '../authentication/authentication.module';
+import { HomeComponent } from './component/home/home.component';
+import { RouterModule } from '@angular/router';
+import { FooterComponent } from './component/footer/footer.component';
 
 
 
 @NgModule({
   declarations: [
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
-    AuthenticationModule
+    AuthenticationModule,
+    RouterModule
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent,
+    FooterComponent
   ]
 })
 export class LayoutModule { }

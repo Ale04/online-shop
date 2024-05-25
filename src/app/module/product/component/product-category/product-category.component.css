@@ -1,0 +1,13 @@
+.card-content {
+    text-decoration: none;
+}
+
+.card-content h5,
+.card-content p {
+    color: #683E38;
+}
+
+.card-body h3 {
+    color: #683E38;
+    font-weight: 600;
+}

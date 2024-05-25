@@ -1,0 +1,24 @@
+<div class="card border-light mb-3">
+    <div class="card-body">
+        <div>
+            <h3 class="card-tittle">{{ category }}</h3><br>
+        </div>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+
+            @for (product of products; track product) {
+            <div class="col">
+                <div class="card h-100">
+                    <a class="card-content" [routerLink]="['/producto', product.gtin]">
+                        <img [src]="getProductImage(product.product_id)" class="card-img-top" alt="...">
+                        <!-- <img src="assets/images/sakura.png" class="card-img-top" alt="..."> -->
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.product }}</h5>
+                            <p class="card-text">{{ product.price | currency: 'USD'}}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>

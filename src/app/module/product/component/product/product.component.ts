@@ -71,13 +71,11 @@ export class ProductComponent {
       if (result.isConfirmed) {
         this.productService.disableProduct(id).subscribe({
           next: (v) => {
-
             this.swal.successMessage(v.body!.message); // show message
             this.getProducts(); // reload products
 
           },
           error: (e) => {
-
             console.error(e);
             this.swal.errorMessage(e.error!.message); // show message
 
@@ -102,13 +100,11 @@ export class ProductComponent {
       if (result.isConfirmed) {
         this.productService.enableProduct(id).subscribe({
           next: (v) => {
-
             this.swal.successMessage(v.body!.message); // show message
             this.getProducts(); // reload products
 
           },
           error: (e) => {
-
             console.error(e);
             this.swal.errorMessage(e.error!.message); // show message
 

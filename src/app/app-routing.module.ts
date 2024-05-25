@@ -7,10 +7,16 @@ import { SecuredComponent } from './module/authentication/secured/secured.compon
 import { authenticationGuard } from './module/authentication/_guard/authentication.guard';
 import { ProductComponent } from './module/product/component/product/product.component';
 import { ProductDetailComponent } from './module/product/component/product-detail/product-detail.component';
+import { HomeComponent } from './module/layout/component/home/home.component';
+import { InvoiceComponent } from './module/invoice/component/invoice/invoice.component';
+import { ProductCategoryComponent } from './module/product/component/product-category/product-category.component';
 
 
 const routes: Routes = [
+  { path: '', component: HomeComponent},
   { path: 'categoria', component: CategoryComponent },
+  { path: 'factura', component: InvoiceComponent },
+  { path: 'producto/categoria/:category_id', component: ProductCategoryComponent },
   // { path: 'register', component: RegisterComponent },
   // { path: 'login', component: LoginComponent },
   { path: 'producto', component: ProductComponent },

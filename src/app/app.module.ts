@@ -13,6 +13,7 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { jwtInterceptorInterceptor } from './core/interceptor/jwt-interceptor.interceptor';
 import {NgxPhotoEditorModule} from "ngx-photo-editor";
 import { ProductDetailComponent } from './module/product/component/product-detail/product-detail.component';
+import { InvoiceModule } from './module/invoice/invoice.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ProductDetailComponent } from './module/product/component/product-detai
     AuthenticationModule,
     CommonsModule,
     LayoutModule,
+    InvoiceModule,
     NgxPhotoEditorModule
   ],
   providers: [

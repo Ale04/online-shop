@@ -4,6 +4,8 @@ import { CategoryComponent } from './component/category/category.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductComponent } from './component/product/product.component';
 import { ProductDetailComponent } from './component/product-detail/product-detail.component';
+import { ProductCategoryComponent } from './component/product-category/product-category.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -11,12 +13,14 @@ import { ProductDetailComponent } from './component/product-detail/product-detai
   declarations: [
     CategoryComponent,
     ProductComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ProductCategoryComponent
   ],
   imports: [
     CommonModule, 
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ]
 })
 export class ProductModule { }
