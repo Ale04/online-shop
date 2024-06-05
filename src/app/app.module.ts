@@ -15,6 +15,7 @@ import {NgxPhotoEditorModule} from "ngx-photo-editor";
 import { ProductDetailComponent } from './module/product/component/product-detail/product-detail.component';
 import { InvoiceModule } from './module/invoice/invoice.module';
 import { CustomerModule } from './module/customer/customer.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CustomerModule } from './module/customer/customer.module';
     CustomerModule,
     LayoutModule,
     InvoiceModule,
-    NgxPhotoEditorModule
+    NgxPhotoEditorModule,
+    NgxPaginationModule
   ],
   providers: [
     provideHttpClient(withInterceptors([jwtInterceptorInterceptor]))

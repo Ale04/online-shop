@@ -4,7 +4,7 @@ import { RegionService } from '../../_service/region.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { SwalMessages } from '../../../commons/_dto/swal-messages';
-import { PagingConfig } from '../../../commons/_models/paging-config';
+import { PagingConfig } from '../../../commons/_model/paging-config';
 
 declare var $: any; // JQuery
 
