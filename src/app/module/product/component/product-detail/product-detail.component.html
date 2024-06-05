@@ -1,11 +1,10 @@
 <div class="card-body">
-
-    <button type="button" class="btn btn-light" (click)="redirect(['producto'])">
-        <i class="ph ph-arrow-circle-left icon-text-button"></i>
-        Terminar
-    </button>
-
     @if (isAdmin) {
+
+        <button type="button" class="btn btn-back" (click)="redirect(['producto'])">
+            <i class='bx bxs-chevron-left'></i>
+            Volver
+        </button>
 
     <div class="row">
 
@@ -115,12 +114,17 @@
         </div>
     </div>
     } @else {
+    <button type="button" class="btn btn-back" (click)="redirect(['categoria'])">
+        <i class='bx bxs-chevron-left'></i>
+        Volver
+    </button>
     <div class="row">
+
 
         <!-- product images -->
 
-        <div class="col-md-4">
-            <div class="card">
+        <div class="col-md-6">
+            <div class="card product-images">
                 @if (images.length > 1) {
 
                 <div id="carouselExampleIndicators" class="carousel slide">
@@ -139,7 +143,7 @@
                         @for (image of images; track image; let i = $index) {
 
                         <div class="carousel-item" [class.active]="i === 0">
-                            <img src="{{ image.image }}" class="d-block w-100" alt="...">
+                            <img src="{{ image.image }}" class="d-block mx-auto w-50" alt="...">
                         </div>
 
                         }
@@ -162,57 +166,61 @@
 
         <!-- product data -->
 
-        <div class="col-md-8">
+        <div class="col-md-6">
 
-            <div class="card card-body-product">
+            <div class="card card-product">
                 <div>
-                    <h3 class="card-tittle">{{ product.product }}</h3><br>
+                    <h3 class="name">{{ product.product }}</h3><br>
                 </div>
-                <table class="table">
-                    <tbody>
-                        <!-- <tr>
-                            <th class="col-md-4"></th>
-                            <td>{{ product.product }}</td>
-                        </tr> -->
-                        <tr>
-                            <th class="col-md-4"></th>
-                            <td>Código del producto: {{ product.gtin }}</td>
-                        </tr>
-                        <tr>
-                            <th class="col-md-4"></th>
-                            <td>{{ product.description }}</td>
-                        </tr>
-                        <tr>
-                            <th class="col-md-4"></th>
-                            <td><strong>{{ product.price }}</strong></td>
-                        </tr>
-                        <tr>
-                            <th class="col-md-4"></th>
-                            <td>
-                                @if (product.stock > 0) {
-                                <p>Disponibles: {{ product.stock }}</p>
-                                <div class="number">
-                                    <span class="minus" (click)="decrement()">-</span>
-                                    <!-- <input type="number"[value]="quantity" (change)="updateQuantity($event)" /> -->
-                                    <input type="number" [value]="quantity" />
-                                    <span class="plus" (click)="increment()">+</span>
-                                </div>
-                                } @else {
-                                <p>Sin productos</p>
-                                }
-                            </td>
-                        </tr>
-                    </tbody>
-                    <a class="btn" role="button" data-bs-toggle="button" (click)="addToCart()">
-                        <i class="ph ph-shopping-cart-simple i-cart"></i> Añadir al carrito
-                    </a>
-                </table>
+                <div class="description">
+                    <span>
+                        {{ product.description }}
+                    </span>
+                </div>
+                <br>
+                <div class="row price stock">
+                    <strong>{{ product.price | currency: 'USD'}}</strong>
 
+                    @if (product.stock > 0) {
+                    <p>Disponibles: {{ product.stock }}</p>
+                    } @else {
+                    <p>Agotado</p>
+                    }
+                </div>
+                <div class="row">
+                    @if (product.stock > 0) {
+
+                        <div class="col number">
+                            <!-- <div class="number"> -->
+                                <span class="input-group-btn">
+                                    <button class="btn-quantity" type="button" (click)="decrement()">-</button>
+                                </span>
+                                <input class="quantity" type="number" [value]="quantity" readonly />
+                                <span class="input-group-btn">
+                                    <button class="btn-quantity" type="button" (click)="increment()">+</button>
+                                </span>
+                            <!-- </div> -->
+                        </div>
+
+                        <div class="col cart">
+                            <div>
+                                <a class="btn btn-cart" role="button" data-bs-toggle="button" (click)="addToCart()">
+                                    Agregar <i class="ph ph-shopping-cart-simple i-cart"></i> 
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <!--  -->
             </div>
+
+
         </div>
     </div>
     }
 </div>
+
+
 
 
 <!-- modal -->

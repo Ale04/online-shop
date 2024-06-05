@@ -1,3 +1,8 @@
+.btn-back {
+    color: #683E38;
+    float: left;
+}
+
 .carousel-del {
     position: absolute;
     right: 0;
@@ -16,8 +21,70 @@
     margin: 0 auto;
 }
 
-.card-body-product {
+.card-product {
     padding: 16px;
+    border: none;
+}
+
+.name {
+    width: 100%;
+    color: #683E38;
+    font-weight: 550;
+    line-height: 35px;
+}
+
+.product-images {
+    border: none;
+}
+
+.card-product .description {
+    width: 500px;
+    /* height: 104px; */
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 23px;
+    color: #683E38;
+}
+
+.card-product .price strong {
+    /* padding: 0;
+    margin: 0; */
+    vertical-align: top;
+    color: #683E38;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.card-product .stock p {
+    /* padding: 0;
+    margin: 0; */
+    color: #A2837F;
+    font-size: 12px;
+}
+
+.cart {
+    margin-left: -80px;;
+}
+
+.btn-cart {
+    /* font-weight: 400; */
+    border-radius: 30px;
+    color: #683E38;
+    background: #F59382;
+    border-color: #F59382;
+    transition: background-color 0.3s ease;
+}&:active, &:focus {
+    outline: none !important;
+    box-shadow: none;
+    color: #683E38;
+    border-color: #683E38;
+    background: #e0816f;
+}
+
+.btn-cart .i-cart {
+    vertical-align: middle;
+    margin-left: 8px;
 }
 
 .btn-trash {
@@ -28,37 +95,51 @@
 .font-name {
     font-weight: bold;
     font-size: large;
-    color: brown;
+    color: #683E38;
 }
 
-span {
-    cursor: pointer;
+.col.number {
+    display: flex; 
+    align-items: center; 
+    line-height: 8px;
 }
 
-.number {
-    margin: 100px;
+.number .quantity:focus {
+    outline: none;
 }
 
-.minus,
-.plus {
+.col.number span {
+    margin: 0 5px; 
+    vertical-align: middle;
+}
+
+.input-group-btn {
+    flex: none; 
+}
+
+.btn-quantity {
+    font-weight: 600;
     width: 20px;
     height: 20px;
-    background: #f2f2f2;
-    border-radius: 4px;
-    padding: 8px 5px 8px 5px;
-    border: 1px solid #ddd;
+    background: #683E38;
+    border-radius: 10px;
+    border: 1px solid #683E38;
     display: inline-block;
     vertical-align: middle;
     text-align: center;
+    cursor: pointer;
+    color: white;
 }
 
-input {
-    height: 34px;
+.number input {
+    height: 20px;
     width: 100px;
     text-align: center;
-    font-size: 26px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    font-size: 12px;
+    border: 1px solid #683E38;
+    color: #683E38;
+    padding-left: 15px;
+    border-radius: 10px;
     display: inline-block;
     vertical-align: middle;
 }

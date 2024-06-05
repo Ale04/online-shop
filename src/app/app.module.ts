@@ -14,6 +14,7 @@ import { jwtInterceptorInterceptor } from './core/interceptor/jwt-interceptor.in
 import {NgxPhotoEditorModule} from "ngx-photo-editor";
 import { ProductDetailComponent } from './module/product/component/product-detail/product-detail.component';
 import { InvoiceModule } from './module/invoice/invoice.module';
+import { CustomerModule } from './module/customer/customer.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { InvoiceModule } from './module/invoice/invoice.module';
     ProductModule,
     AuthenticationModule,
     CommonsModule,
+    CustomerModule,
     LayoutModule,
     InvoiceModule,
     NgxPhotoEditorModule

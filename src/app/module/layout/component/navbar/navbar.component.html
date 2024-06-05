@@ -17,7 +17,7 @@
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true"
                         aria-expanded="false">Categorías</a>
 
-                    <div class="dropdown-menu nav-dropdown-menu">
+                    <div class="dropdown-menu nav-dropdown-menu menu">
                         @for (category of categories; track category) {
                         <a class="dropdown-item nav-dropdown-item" [routerLink]="['producto/categoria/', category.category_id]">{{ category.category }}</a>
                         }
@@ -31,7 +31,7 @@
                         </a>
 
 
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu menu">
                             <a class="dropdown-item nav-dropdown-item" href="/categoria">Categorías</a>
                             <a class="dropdown-item nav-dropdown-item" href="#">Clientes</a>
                             <a class="dropdown-item nav-dropdown-item" href="/producto">Productos</a>
@@ -67,15 +67,15 @@
 
         <li class="nav-item dropdown user-information">
 
-            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+            <a class="dropdown-toggle toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                 aria-expanded="false">
-                <img class="img-profile rounded-circle nav-user-img" src="assets/images/user-circle.svg">
+                <img class="img-profile rounded-circle nav-user-img" src="assets/images/user.svg">
             </a>
 
-            <div class="dropdown-menu nav-dropdown-menu nav-dropdown-menu-user">
+            <div class="dropdown-menu nav-dropdown-menu nav-dropdown-menu-user menu">
                 <a class="dropdown-item nav-dropdown-item" href="#">Account</a>
                 <a class="dropdown-item nav-dropdown-item" href="#">Settings</a>
-                <div class="dropdown-divider"></div>
+                <div class="dropdown-divider menu"></div>
                 <a class="dropdown-item nav-dropdown-item" href="#" (click)="logout()">Log out</a>
             </div>
         </li>

@@ -24,7 +24,11 @@ export class CartService {
     return this.http.get<DtoCartDetails[]>(api_dwb_uri + this.source, { observe: 'response' });
   }
 
-  clearCart() { }
+  clearCart(): Observable<HttpResponse<ApiResponse>> {
+    return this.http.delete<ApiResponse>(api_dwb_uri + this.source, { observe: 'response' });
+  }
 
-  removeFromCart() { }
+  removeFromCart(id: number): Observable<HttpResponse<ApiResponse>> {
+    return this.http.delete<ApiResponse>(api_dwb_uri + this.source + "/" + id, { observe: 'response' });
+  }
 }

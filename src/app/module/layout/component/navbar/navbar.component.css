@@ -30,11 +30,11 @@
 
 .nav-dropdown-menu-user {
     margin-top: 9px;
-    left: -150%;
+    left: -180%;
 }
 
 .nav-user-img {
-    width: 32px;
+    width: 28px;
     margin-right: 5px;
 }
 
@@ -53,15 +53,14 @@
     margin-left: 12px;
 }
 
-/* .form-control:hover {
-    border-color: pink;
-    box-shadow: 0 0 5px pink;
+
+.menu {
+    border-color: #A2837F;
 }
 
-.form-control:focus {
-    border-color: pink;
-    box-shadow: 0 0 5px pink;
-} */
+.toggle {
+    color:#A2837F;
+}
 
 .nav-link {
     color: #A2837F;

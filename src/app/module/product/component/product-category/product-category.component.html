@@ -7,7 +7,7 @@
 
             @for (product of products; track product) {
             <div class="col">
-                <div class="card h-100">
+                <div class="card h-100 card-product">
                     <a class="card-content" [routerLink]="['/producto', product.gtin]">
                         <img [src]="getProductImage(product.product_id)" class="card-img-top" alt="...">
                         <!-- <img src="assets/images/sakura.png" class="card-img-top" alt="..."> -->

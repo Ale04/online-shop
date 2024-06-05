@@ -10,13 +10,17 @@ import { ProductDetailComponent } from './module/product/component/product-detai
 import { HomeComponent } from './module/layout/component/home/home.component';
 import { InvoiceComponent } from './module/invoice/component/invoice/invoice.component';
 import { ProductCategoryComponent } from './module/product/component/product-category/product-category.component';
+import { CustomerDetailComponent } from './module/customer/component/customer-detail/customer-detail.component';
+import { CustomerComponent } from './module/customer/component/customer/customer.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent},
+  { path: '', component: HomeComponent },
   { path: 'categoria', component: CategoryComponent },
   { path: 'factura', component: InvoiceComponent },
   { path: 'producto/categoria/:category_id', component: ProductCategoryComponent },
+  { path: "cliente", component: CustomerComponent },
+  { path: "cliente/:rfc", component: CustomerDetailComponent },
   // { path: 'register', component: RegisterComponent },
   // { path: 'login', component: LoginComponent },
   { path: 'producto', component: ProductComponent },
